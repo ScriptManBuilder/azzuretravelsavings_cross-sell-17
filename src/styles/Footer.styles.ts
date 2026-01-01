@@ -131,12 +131,68 @@ export const FooterLogo = styled.div`
   color: #ffffff;
   margin-bottom: 1.25rem;
   letter-spacing: -0.02em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
 
   svg {
     width: 28px;
     height: 28px;
-    color: #7C3AED;
+    color: #10B981;
     filter: drop-shadow(0 2px 4px rgba(124, 58, 237, 0.3));
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.15rem;
+    gap: 0.5rem;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  @media (max-width: 425px) {
+    font-size: 1rem;
+    gap: 0.4rem;
+
+    img {
+      width: 22px;
+      height: 22px;
+    }
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    font-size: 0.9rem;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 `;
 

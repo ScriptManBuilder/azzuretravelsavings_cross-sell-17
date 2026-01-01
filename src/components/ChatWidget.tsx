@@ -22,35 +22,20 @@ interface Message {
 }
 
 const ChatWidget: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(() => {
-    const saved = localStorage.getItem('chatWidget_isOpen');
-    return saved ? JSON.parse(saved) : false;
-  });
+  const [isOpen, setIsOpen] = useState(false);
   
   const [message, setMessage] = useState('');
   
-  const [messages, setMessages] = useState<Message[]>(() => {
-    const saved = localStorage.getItem('chatWidget_messages');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const [messages, setMessages] = useState<Message[]>([]);
   
   const [isTyping, setIsTyping] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   
-  const [hasShownWelcome, setHasShownWelcome] = useState(() => {
-    const saved = localStorage.getItem('chatWidget_hasShownWelcome');
-    return saved ? JSON.parse(saved) : false;
-  });
+  const [hasShownWelcome, setHasShownWelcome] = useState(false);
 
-  const [messageCount, setMessageCount] = useState(() => {
-    const saved = localStorage.getItem('chatWidget_messageCount');
-    return saved ? JSON.parse(saved) : 0;
-  });
+  const [messageCount, setMessageCount] = useState(0);
 
-  const [lockoutTime, setLockoutTime] = useState<number | null>(() => {
-    const saved = localStorage.getItem('chatWidget_lockoutTime');
-    return saved ? JSON.parse(saved) : null;
-  });
+  const [lockoutTime, setLockoutTime] = useState<number | null>(null);
 
   const [isLocked, setIsLocked] = useState(false);
   
@@ -98,8 +83,6 @@ const ChatWidget: React.FC = () => {
         setLockoutTime(null);
         setMessageCount(0);
         setIsLocked(false);
-        localStorage.removeItem('chatWidget_lockoutTime');
-        localStorage.setItem('chatWidget_messageCount', '0');
       } else {
         // Still locked
         setIsLocked(true);
@@ -108,35 +91,10 @@ const ChatWidget: React.FC = () => {
           setLockoutTime(null);
           setMessageCount(0);
           setIsLocked(false);
-          localStorage.removeItem('chatWidget_lockoutTime');
-          localStorage.setItem('chatWidget_messageCount', '0');
         }, timeLeft);
         
         return () => clearTimeout(timer);
       }
-    }
-  }, [lockoutTime]);
-
-  // Save to localStorage when state changes
-  useEffect(() => {
-    localStorage.setItem('chatWidget_isOpen', JSON.stringify(isOpen));
-  }, [isOpen]);
-
-  useEffect(() => {
-    localStorage.setItem('chatWidget_messages', JSON.stringify(messages));
-  }, [messages]);
-
-  useEffect(() => {
-    localStorage.setItem('chatWidget_hasShownWelcome', JSON.stringify(hasShownWelcome));
-  }, [hasShownWelcome]);
-
-  useEffect(() => {
-    localStorage.setItem('chatWidget_messageCount', JSON.stringify(messageCount));
-  }, [messageCount]);
-
-  useEffect(() => {
-    if (lockoutTime) {
-      localStorage.setItem('chatWidget_lockoutTime', JSON.stringify(lockoutTime));
     }
   }, [lockoutTime]);
 

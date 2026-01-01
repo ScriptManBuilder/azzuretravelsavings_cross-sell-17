@@ -26,8 +26,7 @@ const EndUserTermsPage: React.FC = () => {
           <LegalSection>
             <LegalSectionTitle>1. Acceptance of Terms</LegalSectionTitle>
             <LegalParagraph>
-              These End-User Terms of Service ("End-User Terms") govern your use of services provided by 
-              {process.env.REACT_APP_COMPANY_NAME} when you interact with our travel membership platform and booking services.
+              These End-User Terms of Service ("End-User Terms") govern your use of services provided by               {process.env.REACT_APP_COMPANY_NAME} when you interact with our travel membership platform and booking services.
             </LegalParagraph>
             <LegalParagraph>
               By creating an account, booking travel, or using our membership benefits, 
@@ -207,8 +206,7 @@ const EndUserTermsPage: React.FC = () => {
                 cancellation policy
               </LegalListItem>
               <LegalListItem>
-                <strong>Disputed Charges:</strong> Report unauthorized or incorrect charges to {process.env.REACT_APP_EMAIL_SUPPORT} 
-                within 60 days
+                <strong>Disputed Charges:</strong> Report unauthorized or incorrect charges to {process.env.REACT_APP_EMAIL_SUPPORT}                within 60 days
               </LegalListItem>
               <LegalListItem>
                 <strong>Investigation:</strong> We will investigate disputed charges and work with you and the travel provider to resolve
@@ -299,7 +297,7 @@ const EndUserTermsPage: React.FC = () => {
           <LegalSection>
             <LegalSectionTitle>12. Indemnification</LegalSectionTitle>
             <LegalParagraph>
-              You agree to indemnify and hold harmless {process.env.REACT_APP_COMPANY_NAME}, its affiliates, officers, 
+              You agree to indemnify and hold harmless {process.env.REACT_APP_COMPANY_NAME} its affiliates, officers, 
               employees, and agents from any claims, losses, damages, liabilities, and expenses (including legal fees) arising from:
             </LegalParagraph>
             <LegalList>

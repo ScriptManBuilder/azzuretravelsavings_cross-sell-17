@@ -26,7 +26,7 @@ const MerchantDisclosurePage: React.FC = () => {
           <LegalSection>
             <LegalSectionTitle>Service Provider Information</LegalSectionTitle>
             <LegalParagraph>
-              This disclosure provides important information about {process.env.REACT_APP_COMPANY_NAME}, the service provider 
+              This disclosure provides important information about {process.env.REACT_APP_COMPANY_NAME} the service provider 
               providing travel membership and booking services. This information is provided in compliance with consumer protection 
               laws and payment card industry regulations.
             </LegalParagraph>
